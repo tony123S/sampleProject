@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'overlay_loading_cubit.dart';
@@ -10,6 +12,7 @@ class LogInCubit extends Cubit<LogInState> {
   LogInCubit(this._loadingCubit) : super(LogInLoading());
 
   Future<void> signIn() async {
+    log("This is your OverlayLoadingCubit hashcode from LogInCubit  ${_loadingCubit.hashCode}");
     _loadingCubit.startLoading();
   }
 }

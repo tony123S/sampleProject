@@ -10,7 +10,7 @@ class AppRoute {
   static MaterialPageRoute<dynamic> _loginScreenRoute() {
     return MaterialPageRoute(builder: (context) {
       return BlocProvider(
-          create: (_) => sl<LogInCubit>(), child: (LogInScreen()));
+          create: (_) => sl<LogInCubit>(), child: (const LogInScreen()));
     });
   }
 
