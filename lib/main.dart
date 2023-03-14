@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/presentation/cubit/log_in_cubit.dart';
 import 'package:flutter_application_1/presentation/cubit/overlay_loading_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -13,7 +12,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(App());
+  runApp(const App());
 }
 
 Future<void> initService(
@@ -23,6 +22,6 @@ Future<void> initService(
 }
 
 cubit(GetIt sl) {
-  sl.registerFactory(() => OverlayLoadingCubit());
-  sl.registerFactory(() => LogInCubit(sl()));
+  sl.registerSingleton<OverlayLoadingCubit>(OverlayLoadingCubit());
+  sl.registerFactory(() => LogInCubit(sl<OverlayLoadingCubit>()));
 }
